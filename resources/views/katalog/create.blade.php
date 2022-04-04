@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row page-titles mx-0" style="background: #343957;">
-    <div class="col-sm-6 mt-1 p-md-0">
-        <div class="welcome-text">
-            <h4 class="text-white">Tambah Produk</h4>
+<div class="row my-3 align-items-center">
+    <div class="col-10">
+    <div class="welcome-text">
+            <p class="text-black text-start fs-3 my-3 ms-4">Detail Produk</p>
         </div>
     </div>
-    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+    <div class="col-2 text-start">
         <a href="{{ route('katalog.index') }}">
-            <button type="button" class="btn btn-light">
+            <button type="button" class="btn btn-outline-primary">
                 Kembali
             </button>
         </a>
@@ -17,7 +17,7 @@
 </div>
 <!-- row -->
 
-<div class="col-xl-12 col-xxl-12">
+<div class="col-xl-12 col-xxl-12 me-5">
     <div class="card">
         @if($message = Session::get('success'))
             <div class="mt-4 mb-0 mx-4 alert alert-success alert-block">
@@ -36,25 +36,27 @@
             <div class="basic-form">
                 <form action="{{ route('katalog.create') }}" method="post" enctype="multipart/form-data">
                     @csrf
-                    <div class="form-group">
+                    <div class="form-group my-2">
                         <label>Nama Produk</label>
                         <input type="text" class="form-control input-default " name="nama_produk"
                             placeholder="Tulis nama produk..." required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group my-2">
                         <label>Harga Produk</label>
-                        <input type="text" class="form-control input-default " name="harga_produk"
-                            placeholder="Tulis harga produk..." required>
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1">@</span>
+                            <input type="text" class="form-control input-default " name="harga_produk" placeholder="Tulis harga produk..." required>
+                        </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 my-2">
                         <label>Gambar Produk</label>
                         <input type="file" name="image" class="form-control">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group my-2">
                         <label>Deskripsi Produk</label>
                         <textarea class="form-control" name="deskripsi_produk" placeholder="Tulis deskripsi produk..." required></textarea>
                     </div><br>
-                    <button type="submit" class="btn btn-block btn-primary">Tambah Data</button>
+                    <button type="submit" class="btn btn-block btn-primary"><i class="bi bi-plus-circle me-2"></i>Tambah Data</button>
                 </form>
             </div>
         </div>

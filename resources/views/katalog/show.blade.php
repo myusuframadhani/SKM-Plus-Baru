@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row page-titles mx-0" style="background: #343957;">
-    <div class="col-sm-6 mt-1 p-md-0">
-        <div class="welcome-text">
-            <h4 class="text-white">Detail Produk</h4>
+<div class="row my-3 align-items-center">
+    <div class="col-10">
+    <div class="welcome-text">
+            <p class="text-black text-start fs-3 my-3 ms-4">Detail Produk</p>
         </div>
     </div>
-    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+    <div class="col-2 text-start">
         <a href="{{ route('katalog.index') }}">
-            <button type="button" class="btn btn-light">
+            <button type="button" class="btn btn-outline-primary">
                 Kembali
             </button>
         </a>
