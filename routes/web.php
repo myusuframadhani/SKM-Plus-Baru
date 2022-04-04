@@ -42,5 +42,9 @@ Route::group(['as' => 'katalog.','prefix' => 'produk'], function () {
     Route::post('{id}/edit', '\App\Http\Controllers\KatalogController@update')->name('update')->middleware('is_admin');
 });
 
+Route::group(['as' => 'cabang.','prefix' => 'cabang'], function () {
+    Route::get('/', '\App\Http\Controllers\CabangController@index')->name('index')->middleware('is_admin');
+    Route::get('{id}/show', '\App\Http\Controllers\CabangController@show')->name('show')->middleware('is_admin');
+});
 
 Route::get('admin/stokBarang', [HomeController::class, 'stokBarang'])->name('stok.barang')->middleware('is_admin');
