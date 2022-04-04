@@ -32,10 +32,12 @@ Route::group(['as' => 'user.','prefix' => 'akun'], function () {
     Route::post('{id}/ganti-password', '\App\Http\Controllers\UserController@passUpdate')->name('passUpdate');
 });
 
+// Product
 Route::group(['as' => 'katalog.','prefix' => 'produk'], function () {
-    Route::get('/index', '\App\Http\Controllers\KatalogController@index')->name('index')->middleware('is_admin');
-    Route::get('/show', '\App\Http\Controllers\KatalogController@show')->name('show');
-    Route::post('/create', '\App\Http\Controllers\KatalogController@create')->name('create')->middleware('is_admin');
+    Route::get('/', '\App\Http\Controllers\KatalogController@index')->name('index')->middleware('is_admin');
+    Route::get('/create', '\App\Http\Controllers\KatalogController@create')->name('create')->middleware('is_admin');
+    Route::post('/create', '\App\Http\Controllers\KatalogController@store')->name('store')->middleware('is_admin');
+    Route::get('{id}/show', '\App\Http\Controllers\KatalogController@show')->name('show');
     Route::get('{id}/edit', '\App\Http\Controllers\KatalogController@edit')->name('edit')->middleware('is_admin');
     Route::post('{id}/edit', '\App\Http\Controllers\KatalogController@update')->name('update')->middleware('is_admin');
 });

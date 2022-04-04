@@ -9,14 +9,11 @@ class Katalog extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id_produk'];
+    protected $table = 'katalogs';
+
+    protected $guarded = ['id'];
     //tambahkan kode berikut
     protected $fillable = [
         'nama_produk', 'harga_produk', 'gambar', 'deskripsi_produk'
     ];
-
-    public function user()
-    {
-        return $this->hasOne(User::class);
-    }
 }

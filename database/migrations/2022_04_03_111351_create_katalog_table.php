@@ -13,11 +13,11 @@ class CreateKatalogTable extends Migration
      */
     public function up()
     {
-        Schema::create('katalog', function (Blueprint $table) {
-            $table->id('id_produk');
+        Schema::create('katalogs', function (Blueprint $table) {
+            $table->id();
             $table->string('nama_produk');
             $table->integer('harga_produk');
-            $table->binary('gambar');
+            $table->string('gambar')->nullable();
             $table->text('deskripsi_produk');
             $table->timestamps();
         });

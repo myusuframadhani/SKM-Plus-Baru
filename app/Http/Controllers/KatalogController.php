@@ -15,22 +15,20 @@ class KatalogController extends Controller
      */
     public function index()
     {
-        $product = \App\Models\Product::all();
-        return view('product.index',compact('product'));
+        $katalog = \App\Models\Katalog::all();
+        return view('katalog.index',compact('katalog'));
+    }
+
+    public function create()
+    {
+        $katalog = \App\Models\Katalog::all();
+        return view('katalog.create',compact('katalog'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        $category = \App\Models\Category::all();
-        return view('product.create',compact('category'));
-    }
-
-    /**
+     * 
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -41,9 +39,10 @@ class KatalogController extends Controller
         $input = $request->all();
 
         $dataValidator = [
-            'category_id' => 'required|numeric',
-            'name' => 'required|string',
-            'description' => 'required|string',
+            'nama_produk' => 'required|string',
+            'harga_produk' => 'required|integer',
+            'gambar' => 'image|file',
+            'deskripsi_produk' => 'required|string',
         ];
         $validator = Validator::make($input,$dataValidator);
         if($validator->fails()){
@@ -51,11 +50,13 @@ class KatalogController extends Controller
         }
 
         $dataCreate = [
-            'category_id' => $request->category_id,
-            'name' => $request->name,
-            'description' => $request->description,
+            'nama_produk' => $request->nama_produk,
+            'harga_produk' => $request->harga_produk,
+            'gambar' => $request->file('image')->store('product'),
+            'deskripsi_produk' => $request->deskripsi_produk,
         ];
-        $product = \App\Models\Product::create($dataCreate);
+
+        $katalog = \App\Models\Katalog::create($dataCreate);
         return back()->with('success', 'Berhasil menambahkan data produk');
     }
 
@@ -67,8 +68,8 @@ class KatalogController extends Controller
      */
     public function show($id)
     {
-        $product = \App\Models\Product::findOrFail($id);
-        return view('product.show',compact('product'));
+        $katalog = \App\Models\Katalog::findOrFail($id);
+        return view('katalog.show',compact('katalog'));
     }
 
     /**
@@ -79,9 +80,8 @@ class KatalogController extends Controller
      */
     public function edit($id)
     {
-        $product = \App\Models\Product::findOrFail($id);
-        $category = \App\Models\Category::all();
-        return view('product.edit',compact('product','category'));
+        $katalog = \App\Models\Katalog::findOrFail($id);
+        return view('katalog.edit',compact('katalog'));
     }
 
     /**
@@ -93,13 +93,13 @@ class KatalogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $product = \App\Models\Product::findOrFail($id);
+        $katalog = \App\Models\Katalog::findOrFail($id);
         $input = $request->all();
 
         $dataValidator = [
             'category_id' => 'required|numeric',
-            'name' => 'required|string',
-            'description' => 'required|string',
+            'nama_produk' => 'required|string',
+            'deskripsi_produk' => 'required|string',
         ];
         $validator = Validator::make($input,$dataValidator);
         if($validator->fails()){
@@ -108,10 +108,10 @@ class KatalogController extends Controller
 
         $dataUpdate = [
             'category_id' => $request->category_id,
-            'name' => $request->name,
-            'description' => $request->description,
+            'nama_produk' => $request->nama_produk,
+            'deskripsi_produk' => $request->deskripsi_produk,
         ];
-        $product->update($dataUpdate);
+        $katalog->update($dataUpdate);
         return back()->with('success', 'Berhasil memperbarui data produk');
     }
 

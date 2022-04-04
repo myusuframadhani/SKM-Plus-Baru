@@ -1,53 +1,66 @@
 @extends('layouts.app')
- 
+
+@section('title', 'Data Produk')
 @section('content')
-    <div class="row mt-5">
-        <div class="col-lg-12 margin-tb">
-            <div class="float-start">
-                <h2>Laravel 9 CRUD School Application</h2>
-            </div>
-            <div class="float-end">
-                <a class="btn btn-success" href="{{ route('students.create') }}"> Create New student</a>
+<div class="row page-titles mx-0" style="background: #343957;">
+    <div class="col-sm-6 mt-1 p-md-0">
+        <div class="welcome-text">
+            <h4 class="text-white">Data Produk</h4>
+        </div>
+    </div>
+    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+        <a href="{{ route('admin.home') }}">
+            <button type="button" class="btn btn-light">
+                Kembali
+            </button>
+        </a>
+    </div>
+</div>
+<!-- row -->
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="example" class="display text-muted" style="min-width: 845px">
+                        <thead>
+                            <tr>
+                                <th>Nama Produk</th>
+                                <th>Harga Produk</th>
+                                <th>Deskripsi Produk</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse($katalog as $data)
+                                <tr>
+                                    <td>{{ $data->nama_produk }}</td>
+                                    <td>{{ $data->harga_produk}}</td>
+                                    <td>{{ $data->deskripsi_produk }}</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <a href="{{ route('katalog.show', $data->id) }}">
+                                                <button type="button" class="btn btn-info">
+                                                    <i class="fa fa-eye"></i>
+                                                </button>
+                                            </a>
+                                            <a href="{{ route('katalog.edit', $data->id) }}">
+                                                <button type="button" class="btn btn-warning">
+                                                    <i class="fa fa-pencil"></i>
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @empty
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-   
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
-    @endif
-   
-    <table class="table table-bordered">
-        <tr>
-            <th>No</th>
-            <th>Name</th>
-            <th>Kelas</th>
-            <th width="280px">Action</th>
-        </tr>
-        @foreach ($students as $student)
-        <tr>
-            <td>{{ ++$i }}</td>
-            <td>{{ $student->name }}</td>
-            <td>{{ $student->kelas }}</td>
-            <td>
-                <form action="{{ route('students.destroy',$student->id) }}" method="POST">
-   
-                    <a class="btn btn-info" href="{{ route('students.show',$student->id) }}">Show</a>
-    
-                    <a class="btn btn-primary" href="{{ route('students.edit',$student->id) }}">Edit</a>
-   
-                    @csrf
-                    @method('DELETE')
-      
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
-            </td>
-        </tr>
-        @endforeach
-    </table>
-    <div class="row text-center">
-        {!! $students->links() !!}
-    </div>
-      
+</div>
 @endsection
