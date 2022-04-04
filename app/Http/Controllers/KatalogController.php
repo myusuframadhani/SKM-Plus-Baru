@@ -97,8 +97,9 @@ class KatalogController extends Controller
         $input = $request->all();
 
         $dataValidator = [
-            'category_id' => 'required|numeric',
             'nama_produk' => 'required|string',
+            'harga_produk' => 'required|integer',
+            'gambar' => 'image|file',
             'deskripsi_produk' => 'required|string',
         ];
         $validator = Validator::make($input,$dataValidator);
@@ -107,8 +108,9 @@ class KatalogController extends Controller
         }
 
         $dataUpdate = [
-            'category_id' => $request->category_id,
             'nama_produk' => $request->nama_produk,
+            'harga_produk' => $request->harga_produk,
+            'gambar' => $request->file('image')->store('product'),
             'deskripsi_produk' => $request->deskripsi_produk,
         ];
         $katalog->update($dataUpdate);

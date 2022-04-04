@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row page-titles mx-0" style="background: #343957;">
-    <div class="col-sm-6 mt-1 p-md-0">
-        <div class="welcome-text">
-            <h4 class="text-white">Edit Produk</h4>
+<div class="row my-3 align-items-center">
+    <div class="col-10">
+    <div class="welcome-text">
+            <p class="text-black text-start fs-3 my-3 ms-4">Edit Produk</p>
         </div>
     </div>
-    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+    <div class="col-2 text-start">
         <a href="{{ route('katalog.index') }}">
-            <button type="button" class="btn btn-light">
+            <button type="button" class="btn btn-outline-primary">
                 Kembali
             </button>
         </a>
@@ -34,7 +34,7 @@
         @endif
         <div class="card-body">
             <div class="basic-form">
-                <form action="{{ route('katalog.update', $katalog->id) }}" method="post">
+                <form action="{{ route('katalog.update', $katalog->id) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     
                     <div class="form-group">
@@ -44,8 +44,12 @@
                     </div>
                     <div class="form-group">
                         <label>Harga Produk</label>
-                        <input type="text" class="form-control input-default " name="name"
+                        <input type="text" class="form-control input-default " name="harga_produk"
                             value="{{ $katalog->harga_produk }}" placeholder="Tulis harga produk..." required>
+                    </div>
+                    <div class="col-md-6 my-2">
+                        <label>Gambar Produk</label>
+                        <input type="file" name="image" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Deskripsi Produk</label>
