@@ -84,7 +84,7 @@ class StockController extends Controller
         $katalog = \App\Models\Katalog::findOrFail($request->id_produk);
         $dataHistory = [
             'user_id' => $user->id,
-            'deksripsi' => 'Menambah data stok '. $katalog->nama_produk,
+            'deskripsi' => 'Menambah data stok '. $katalog->nama_produk,
         ];
         $history = \App\Models\History::create($dataHistory);
         
