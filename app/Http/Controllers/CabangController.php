@@ -8,7 +8,7 @@ class CabangController extends Controller
 {
     public function index()
     {
-        $cabang = \App\Models\Cabang::where('id', '!=', 1)->get();
+        $cabang = \App\Models\Cabang::all();
         return view('cabang.index',compact('cabang'));
     }
     

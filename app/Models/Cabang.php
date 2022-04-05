@@ -15,4 +15,9 @@ class Cabang extends Model
     protected $fillable = [
         'nama_cabang', 'alamat'
     ];
+
+    public function stock()
+    {
+        return $this->hasMany(Stock::class);
+    }
 }
