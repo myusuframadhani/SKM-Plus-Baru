@@ -22,7 +22,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h6 class="card-title">(Pilih outlet untuk melihat stok)</h6>
+                <h6 class="card-title">(Pilih cabang untuk melihat stok)</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">

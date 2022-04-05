@@ -36,20 +36,20 @@
                                 <th>Nama Produk</th>
                                 <th>Stok</th>
                                 <th>Deskripsi</th>
-                                <th>Opsi</th>
+                                <th class="text-center">Aksi</thOpsi</th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse($stock as $data)
                                 <tr>
-                                    <td>{{ $data->katalog->nama_produk }}</td>
+                                    <td>{{ $data->katalog->nama_produk}}</td>
                                     <td>{{ ($data->jumlah > 0) ? $data->jumlah : 'Sold Out' }}
                                     </td>
-                                    <td>{{ $data->katalog->deskripsi }}</td>
-                                    <td>
+                                    <td>{{ $data->katalog->deskripsi_produk}}</td>
+                                    <td class="text-center">
                                         <div class="btn-group">
                                             <a href="{{ route('stock.show', $data->id) }}">
-                                                <button type="button" class="btn btn-info">
+                                                <button type="button" class="btn btn-info me-2">
                                                     <i class="fa fa-eye"></i>
                                                 </button>
                                             </a>

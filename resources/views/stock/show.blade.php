@@ -29,6 +29,12 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Stok Produk</label>
+                        <div class="col-sm-9">
+                            <input type="text" readonly class="form-control-plaintext" value="{{ $stock->jumlah }}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Deskripsi Produk</label>
                         <div class="col-sm-9">
                             <textarea readonly class="form-control-plaintext" style="resize: none;">{{ $stock->katalog->deskripsi_produk }}</textarea>

@@ -40,7 +40,7 @@
                     <input type="number" name="id_cabang" value="{{ $cabang->id }}" hidden>
                     <div class="form-row">
                         <div class="col-sm-5">
-                            <label>Nama Produk (Pilih Satu yang Belum Tersedia di Cabang):</label>
+                            <label class="my-3">Nama Produk (Pilih Satu yang Belum Tersedia di Cabang):</label>
                             <select class="form-control" id="sel1" name="id_produk">
                                 @forelse($katalog as $data)
                                     <option value="{{ $data->id }}">{{ $data->nama_produk }}</option>
