@@ -12,12 +12,12 @@ class Stock extends Model
 
     public function cabang()
     {
-        return $this->belongsTo(Cabang::class);
+        return $this->belongsTo(Cabang::class, 'id_cabang');
     }
 
     public function katalog()
     {
-        return $this->belongsTo(Katalog::class);
+        return $this->belongsTo(Katalog::class, 'id_produk');
     }
 
 }

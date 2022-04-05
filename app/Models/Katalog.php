@@ -12,10 +12,6 @@ class Katalog extends Model
     protected $table = 'katalogs';
 
     protected $guarded = ['id'];
-    //tambahkan kode berikut
-    protected $fillable = [
-        'nama_produk', 'harga_produk', 'gambar', 'deskripsi_produk'
-    ];
 
     public function stock()
     {
