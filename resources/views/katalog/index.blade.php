@@ -30,7 +30,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="table-responsive">
-                    <table id="example" class="display text-muted" style="min-width: 845px">
+                    <table id="example" class="table display text-muted" style="min-width: 845px">
                         <thead>
                             <tr>
                                 <th>Nama Produk</th>

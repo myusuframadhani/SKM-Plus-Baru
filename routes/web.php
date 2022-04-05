@@ -24,6 +24,8 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 
+
+// User
 Route::group(['as' => 'user.','prefix' => 'akun'], function () {
     Route::get('{id}/show', '\App\Http\Controllers\UserController@show')->name('show');
     Route::get('{id}/edit', '\App\Http\Controllers\UserController@edit')->name('edit');
@@ -32,7 +34,7 @@ Route::group(['as' => 'user.','prefix' => 'akun'], function () {
     Route::post('{id}/ganti-password', '\App\Http\Controllers\UserController@passUpdate')->name('passUpdate');
 });
 
-// Product
+// Produk
 Route::group(['as' => 'katalog.','prefix' => 'produk'], function () {
     Route::get('/', '\App\Http\Controllers\KatalogController@index')->name('index')->middleware('is_admin');
     Route::get('/create', '\App\Http\Controllers\KatalogController@create')->name('create')->middleware('is_admin');
@@ -42,9 +44,19 @@ Route::group(['as' => 'katalog.','prefix' => 'produk'], function () {
     Route::post('{id}/edit', '\App\Http\Controllers\KatalogController@update')->name('update')->middleware('is_admin');
 });
 
+// Cabang
 Route::group(['as' => 'cabang.','prefix' => 'cabang'], function () {
     Route::get('/', '\App\Http\Controllers\CabangController@index')->name('index')->middleware('is_admin');
     Route::get('{id}/show', '\App\Http\Controllers\CabangController@show')->name('show')->middleware('is_admin');
 });
 
-Route::get('admin/stokBarang', [HomeController::class, 'stokBarang'])->name('stok.barang')->middleware('is_admin');
+//Stock
+Route::group(['as' => 'stock.','prefix' => 'stok'], function () {
+    Route::get('/', '\App\Http\Controllers\StockController@index')->name('index')->middleware('is_admin');
+    Route::get('{id}/list', '\App\Http\Controllers\StockController@list')->name('list');
+    Route::get('{id}/create', '\App\Http\Controllers\StockController@create')->name('create');
+    Route::post('{id}/create', '\App\Http\Controllers\StockController@store')->name('store');
+    Route::get('{id}/show', '\App\Http\Controllers\StockController@show')->name('show');
+    Route::get('{id}/edit', '\App\Http\Controllers\StockController@edit')->name('edit');
+    Route::post('{id}/edit', '\App\Http\Controllers\StockController@update')->name('update');
+});

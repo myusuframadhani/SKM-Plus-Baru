@@ -16,4 +16,9 @@ class Katalog extends Model
     protected $fillable = [
         'nama_produk', 'harga_produk', 'gambar', 'deskripsi_produk'
     ];
+
+    public function stock()
+    {
+        return $this->hasMany(Stock::class);
+    }
 }
