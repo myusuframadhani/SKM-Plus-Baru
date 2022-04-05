@@ -44,7 +44,7 @@
                     <div class="form-group my-2">
                         <label>Harga Produk</label>
                         <div class="input-group">
-                            <span class="input-group-text" id="basic-addon1">@</span>
+                            <span class="input-group-text" id="basic-addon1">Rp</span>
                             <input type="text" class="form-control input-default " name="harga_produk" placeholder="Tulis harga produk..." required>
                         </div>
                     </div>
