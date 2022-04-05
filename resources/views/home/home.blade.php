@@ -3,37 +3,49 @@
     @php
         $user = auth()->user()
     @endphp
-    <div class="container" style="font-family: 'Nunito'; scroll-behavior: smooth;">
+    <div class="container" style="font-family: 'Rubik', sans-serif; scroll-behavior: smooth;">
         <nav class="my-4">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center align-items-center mx-4">
                 <div class="col-3 text-center">
-                    <p>Logo</p>
+                    <img src="{{asset('img/logo.png')}}" alt="Logo Website" class="ms-5" style="transform: scale(0.75);">
                 </div>
                 <div class="col-6 text-center">
-                    <ul class="">
-                        <li class="d-inline mx-3">Produk</li>
-                        <li class="d-inline mx-3">Produk</li>
-                        <li class="d-inline mx-3">Produk</li>
-                        <li class="d-inline mx-3">Produk</li>
+                    <ul style="font-family: 'Raleway', sans-serif; font-size: 12px;">
+                        <li class="d-inline mx-3">HOME</li>
+                        <li class="d-inline mx-3">FEATURES</li>
+                        <li class="d-inline mx-3">SUPPORT</li>
+                        <li class="d-inline mx-3">CONTACT US</li>
                     </ul>
+                </div>
+                <div class="rectangle" 
+                    style= "position: absolute;
+                            width: 412px;
+                            height: 750px;
+                            left: 1105px;
+                            top: 0px;
+                            z-index: -1;
+                            background: #457B9D;
+                            border-radius: 30px 0px 0px 30px;"
+                >
+
                 </div>
                 <div class="col-3 text-center">
                 @guest
                     @if (Route::has('login'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link" href="{{ route('login') }}"><button type="button" class="btn btn-primary">{{ __('Login') }}</button></a>
                         </li>
                     @endif
 
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}"><button type="button" class="btn btn-primary">{{ __('Register') }}</button></a>
                         </li>
                     @endif
                 @else
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
+                    <ul class="nav-item dropdown text-white">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <i class="bi bi-person me-2 text-white"></i>{{ Auth::user()->name }}
                         </a>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('user.show', $user->id) }}">Profil</a>
@@ -47,23 +59,26 @@
                                 @csrf
                             </form>
                         </div>
-                    </li>
+                    </ul>
                 @endguest
                 </div>
             </div>
         </nav>
         <main class="container">
-            <div class="row justify-content-center align-items-center">
-                <div class="col-1"></div>
-                <div class="col-5 ps-5">
-                    <p class="fs-6 fw-bolder ps-5">SUSU SEHAT UNTUKMU</p>
-                    <p class="fs-1 fw-bold py-3 ps-5" style="color: #00c6b6">MINUM SEMAUMU</p>
-                    <p class="fs-6 text-secondary lh-sm ps-5">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum voluptates assumenda, ab dignissimos, voluptatum ad itaque voluptate repudiandae totam non odio fuga tenetur mollitia exercitationem commodi, reprehenderit sequi porro quaerat.</p>
-                    <a href="#belanja"><button type="button" class="btn text-white ms-5 my-4" style="background-color: #00c6b6;">Belanja</button></a>
-                    <a href=""><button type="button" class="btn btn-outline-info ms-2 my-4" data-mdb-ripple-color="dark">Lainnya</button></a>
+            <div class="row align-items-center mx-3">
+                <div class="col-6 ps-5">
+                    <p class="fs-1 fw-bold py-3 ps-5" style="font-family: 'Rubik', sans-serif; font-size: 44px; font-weight: 600">SUSU KEDELAI, CIPTAKAN GENERASI <span style="color: #A8DADC">SEHAT!</span></p>
+                    <p class="fs-6 text-secondary lh-sm ps-5 my-4" font-family="font-family: 'Rubik', sans-serif;">All in one destination for COVID-19 health queries.  Consult 10,000+ health workers about your concerns.</p>
+                    <a href="#belanja"><button type="button" class="btn text-white ms-5 my-4" style="background-color: #457B9D;">Belanja</button></a>
+                    <a href=""><button type="button" class="btn btn-outline-primary ms-2 my-4" data-mdb-ripple-color="dark">Lainnya</button></a>
                 </div>
                 <div class="col-6 text-end">
                     <img src="{{asset('img/landing-page.png')}}" alt="" style="background-size : cover;">
+                </div>
+            </div>
+            <div class="row mx-5 mb-5">
+                <div class="col-3 mx-5 mb-5">
+                    <a href=""><img src="{{asset('img/video.png')}}" alt=""></a>
                 </div>
             </div>
             <div class="row align-items-center">
@@ -76,12 +91,12 @@
                     <p class="fs-6 text-secondary lh-sm my-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum voluptates assumenda, ab dignissimos, voluptatum ad itaque voluptate repudiandae totam non odio fuga tenetur mollitia exercitationem commodi, reprehenderit sequi porro quaerat.</p>
                     <div class="row my-3">
                         <div class="col-6">
-                            <p class="text-info fw-bolder fs-5 ">1. Vitamin A, B, D, E</p>
-                            <p class="text-info fw-bolder fs-5 ">2. Kalsium</p>
+                            <p class="fw-bolder fs-5" style="color: #457B9D">1. Vitamin A, B, D, E</p>
+                            <p class="fw-bolder fs-5" style="color: #457B9D">2. Kalsium</p>
                         </div>
                         <div class="col-6">
-                            <p class="text-info fw-bolder fs-5 ">3. Kalium</p>
-                            <p class="text-info fw-bolder fs-5 ">4. Zat Besi & Fosfor</p>
+                            <p class="fw-bolder fs-5" style="color: #457B9D">3. Kalium</p>
+                            <p class="fw-bolder fs-5" style="color: #457B9D">4. Zat Besi & Fosfor</p>
                         </div>
                     </div>
                 </div>
@@ -98,9 +113,9 @@
                         <div class="card-body text-center">
                             <p class="card-title fw-bold fs-4">Rasa Original</p>
                             <div class="my-1"><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i></div>
-                            <p class="fs-3 fw-bold text-success">Rp 3.000,00</p>
+                            <p class="fs-3 fw-bold" style="color: #457B9D">Rp 3.000,00</p>
                             <p class="text-secondary">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                            <a href="#"><button type="button" class="btn text-white my-4" style="background-color: #00c6b6">Beli</button></a>
+                            <a href="#"><button type="button" class="btn text-white my-4" style="background-color: #457B9D">Beli</button></a>
                         </div>
                     </div>
                 </div>
@@ -112,9 +127,9 @@
                         <div class="card-body text-center">
                             <p class="card-title fw-bold fs-4">Rasa Coklat</p>
                             <div class="my-1"><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i></div>
-                            <p class="fs-3 fw-bold text-success">Rp 3.000,00</p>
+                            <p class="fs-3 fw-bold" style="color: #457B9D">Rp 3.000,00</p>
                             <p class="text-secondary">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                            <a href="#"><button type="button" class="btn text-white my-4" style="background-color: #00c6b6">Beli</button></a>
+                            <a href="#"><button type="button" class="btn text-white my-4" style="background-color: #457B9D">Beli</button></a>
                         </div>
                     </div>
                 </div>
@@ -126,9 +141,9 @@
                         <div class="card-body text-center">
                             <p class="card-title fw-bold fs-4">Rasa Strawberry</p>
                             <div class="my-1"><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i></div>
-                            <p class="fs-3 fw-bold text-success">Rp 3.000,00</p>
+                            <p class="fs-3 fw-bold" style="color: #457B9D">Rp 3.000,00</p>
                             <p class="text-secondary">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                            <a href="#"><button type="button" class="btn text-white my-4" style="background-color: #00c6b6">Beli</button></a>
+                            <a href="#"><button type="button" class="btn text-white my-4" style="background-color: #457B9D">Beli</button></a>
                         </div>
                     </div>
                 </div>
@@ -140,9 +155,9 @@
                         <div class="card-body text-center">
                             <p class="card-title fw-bold fs-4">Rasa Melon</p>
                             <div class="my-1"><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i></div>
-                            <p class="fs-3 fw-bold text-success">Rp 3.000,00</p>
+                            <p class="fs-3 fw-bold" style="color: #457B9D">Rp 3.000,00</p>
                             <p class="text-secondary">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                            <a href="#"><button type="button" class="btn text-white my-4" style="background-color: #00c6b6">Beli</button></a>
+                            <a href="#"><button type="button" class="btn text-white my-4" style="background-color: #457B9D;">Beli</button></a>
                         </div>
                     </div>
                 </div>
@@ -150,4 +165,73 @@
         </main>
     </div>
 </body>
+<footer class="text-center text-white mt-5" style="background-color: #FFF;">
+  <!-- Grid container -->
+  <div class="container pt-4">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="#!"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+
+      <!-- Twitter -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="#!"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-twitter"></i
+      ></a>
+
+      <!-- Google -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="#!"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-google"></i
+      ></a>
+
+      <!-- Instagram -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="#!"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-instagram"></i
+      ></a>
+
+      <!-- Linkedin -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="#!"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-linkedin"></i
+      ></a>
+      <!-- Github -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="#!"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-github"></i
+      ></a>
+    </section>
+    <!-- Section: Social media -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center text-dark p-3" style="background-color: #A8DADC;">
+    © 2020 Copyright:
+    <a class="text-dark" href="https://mdbootstrap.com/">SKMPlus.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
 </html>
