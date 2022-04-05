@@ -28,7 +28,7 @@ class StockController extends Controller
     public function list($id)
     {
         $cabang = \App\Models\Cabang::findOrFail($id);
-        $stock = \App\Models\Stock::where("cabang_id", $cabang->id)->get();
+        $stock = \App\Models\Stock::where("id_cabang", $cabang->id)->get();
         return view('stock.list',compact('cabang','stock'));
     }
 
