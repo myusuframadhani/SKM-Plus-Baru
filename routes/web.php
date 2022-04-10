@@ -15,13 +15,13 @@ use App\Http\Controllers\UserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 
 
@@ -33,6 +33,9 @@ Route::group(['as' => 'user.','prefix' => 'akun'], function () {
     Route::get('{id}/ganti-password', '\App\Http\Controllers\UserController@passEdit')->name('passEdit');
     Route::post('{id}/ganti-password', '\App\Http\Controllers\UserController@passUpdate')->name('passUpdate');
 });
+
+// Distributor
+Route::get('distributor/', [\App\Http\Controllers\DistributorController::class, 'index'])->name('distributor.index')->middleware('is_admin');
 
 // Produk
 Route::group(['as' => 'katalog.','prefix' => 'produk'], function () {
