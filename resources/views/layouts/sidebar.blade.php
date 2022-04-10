@@ -23,19 +23,24 @@
                     </a>
                     
                     <a class="nav-link" href="{{route('cabang.index')}}">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <div class="sb-nav-link-icon"><i class="fa-solid fa-share-nodes"></i></i></div>
                         Cabang
+                    </a>
+                    
+                    <a class="nav-link" href="{{route('distributor.index')}}">
+                        <div class="sb-nav-link-icon"><i class="fa-solid fa-people-carry-box"></i></i></i></div>
+                        Distributor
                     </a>
 
                     <div class="sb-sidenav-menu-heading">Katalog</div>
                     
                     <a class="nav-link" href="{{route('katalog.index')}}">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <div class="sb-nav-link-icon"><i class="fa-solid fa-list"></i></i></div>
                         Produk
                     </a>
                     
                     <a class="nav-link" href="{{route('stock.index')}}">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <div class="sb-nav-link-icon"><i class="fa-solid fa-cubes-stacked"></i></i></div>
                         Stok Produk
                     </a>
                     
