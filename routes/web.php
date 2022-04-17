@@ -22,7 +22,8 @@ use App\Http\Controllers\UserController;
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 
 
 // User
@@ -39,13 +40,16 @@ Route::get('distributor/', [\App\Http\Controllers\DistributorController::class, 
 
 // Produk
 Route::group(['as' => 'katalog.','prefix' => 'produk'], function () {
-    Route::get('/', '\App\Http\Controllers\KatalogController@index')->name('index')->middleware('is_admin');
+    Route::get('/admin', '\App\Http\Controllers\KatalogController@index')->name('index')->middleware('is_admin');
     Route::get('/create', '\App\Http\Controllers\KatalogController@create')->name('create')->middleware('is_admin');
     Route::post('/create', '\App\Http\Controllers\KatalogController@store')->name('store')->middleware('is_admin');
     Route::get('{id}/show', '\App\Http\Controllers\KatalogController@show')->name('show');
     Route::get('{id}/edit', '\App\Http\Controllers\KatalogController@edit')->name('edit')->middleware('is_admin');
     Route::post('{id}/edit', '\App\Http\Controllers\KatalogController@update')->name('update')->middleware('is_admin');
 });
+
+// Produk untuk Pengguna
+Route::get('/produk', '\App\Http\Controllers\KatalogController@userIndex')->name('katalog.userIndex');
 
 // Cabang
 Route::group(['as' => 'cabang.','prefix' => 'cabang'], function () {

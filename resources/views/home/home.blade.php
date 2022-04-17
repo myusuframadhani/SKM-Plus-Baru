@@ -11,10 +11,10 @@
                 </div>
                 <div class="col-6 text-center">
                     <ul style="font-family: 'Raleway', sans-serif; font-size: 12px;">
-                        <li class="d-inline mx-3">HOME</li>
-                        <li class="d-inline mx-3">FEATURES</li>
-                        <li class="d-inline mx-3">SUPPORT</li>
-                        <li class="d-inline mx-3">CONTACT US</li>
+                        <a href="{{ route('katalog.userIndex')}}"><li class="d-inline mx-3">PRODUK</li></a>
+                        <li class="d-inline mx-3">ARTIKEL</li>
+                        <li class="d-inline mx-3">TENTANG KAMI</li>
+                        <li class="d-inline mx-3">FAQ</li>
                     </ul>
                 </div>
                 <div class="rectangle" 
@@ -101,66 +101,19 @@
                     </div>
                 </div>
             </div>
-            <p class="fs-1 fw-bold text-center text-decoration-underline">Yuk Belanja</p>
-            <div class="row mt-5 px-5">
 
-                <!-- Original -->
-                <div class="col-3" id="belanja">
-                    <div class="card text-black border-0">
-                        <div class="rounded-0">
-                            <img src="{{asset('img/original.png')}}" class="card-img-top px-5 pt-5" alt="Susu rasa original">
-                        </div>
-                        <div class="card-body text-center">
-                            <p class="card-title fw-bold fs-4">Rasa Original</p>
-                            <div class="my-1"><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i></div>
-                            <p class="fs-3 fw-bold" style="color: #457B9D">Rp 3.000,00</p>
-                            <p class="text-secondary">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                            <a href="#"><button type="button" class="btn text-white my-4" style="background-color: #457B9D">Beli</button></a>
-                        </div>
-                    </div>
+            <div class="row mt-5 px-5 align-items-center justify-content-center">
+
+                <div class="col-6 ps-5 mb-5">
+                    <p class="fs-1 fw-bold ps-5">Katalog produk  berisi variasi rasa susu kedelai yang menyegarkan</p>
+                    <p class="fs-6 text-secondary ps-5">Susu kedelai biasanya hanya disajikan rasa original. Variasi rasa  membuat anda dapat merasakan sensasi rasa berbeda yang tentunya tetap menyehatkan. </p>
+                        <a href="{{ route('katalog.userIndex')}}"><button type="button" class="btn text-white my-4 ms-5" style="background-color: #457B9D;">Yuk Belanja</button></a>
                 </div>
-                <div class="col-3">
-                <div class="card text-black border-0">
-                        <div class="rounded-0">
-                            <img src="{{asset('img/Coklat.png')}}" class="card-img-top px-5 pt-5" alt="Susu rasa coklat">
-                        </div>
-                        <div class="card-body text-center">
-                            <p class="card-title fw-bold fs-4">Rasa Coklat</p>
-                            <div class="my-1"><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i></div>
-                            <p class="fs-3 fw-bold" style="color: #457B9D">Rp 3.000,00</p>
-                            <p class="text-secondary">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                            <a href="#"><button type="button" class="btn text-white my-4" style="background-color: #457B9D">Beli</button></a>
-                        </div>
-                    </div>
+                <div class="col-6 text-center">
+                    <img src="{{asset('img/belanja.png')}}" alt="belanja" style="transform: scale(0.75);" class="">
                 </div>
-                <div class="col-3">
-                    <div class="card text-black border-0">
-                        <div class="rounded-0">
-                            <img src="{{asset('img/strawberry.png')}}" class="card-img-top px-5 pt-5" alt="Susu rasa strawberry">
-                        </div>
-                        <div class="card-body text-center">
-                            <p class="card-title fw-bold fs-4">Rasa Strawberry</p>
-                            <div class="my-1"><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i></div>
-                            <p class="fs-3 fw-bold" style="color: #457B9D">Rp 3.000,00</p>
-                            <p class="text-secondary">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                            <a href="#"><button type="button" class="btn text-white my-4" style="background-color: #457B9D">Beli</button></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="card text-black border-0">
-                        <div class="rounded-0">
-                            <img src="{{asset('img/melon.png')}}" class="card-img-top px-5 pt-5" alt="Susu rasa melon">
-                        </div>
-                        <div class="card-body text-center">
-                            <p class="card-title fw-bold fs-4">Rasa Melon</p>
-                            <div class="my-1"><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i></div>
-                            <p class="fs-3 fw-bold" style="color: #457B9D">Rp 3.000,00</p>
-                            <p class="text-secondary">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                            <a href="#"><button type="button" class="btn text-white my-4" style="background-color: #457B9D;">Beli</button></a>
-                        </div>
-                    </div>
-                </div>
+                
+                
             </div>
         </main>
     </div>
