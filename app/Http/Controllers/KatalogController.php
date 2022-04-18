@@ -18,12 +18,6 @@ class KatalogController extends Controller
         $katalog = \App\Models\Katalog::all();
         return view('katalog.index',compact('katalog'));
     }
-    
-    public function userIndex()
-    {
-        $katalog = \App\Models\Katalog::all();
-        return view('katalog.userIndex',compact('katalog'));
-    }
 
     public function create()
     {

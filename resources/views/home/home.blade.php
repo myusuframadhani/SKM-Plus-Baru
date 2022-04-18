@@ -11,7 +11,7 @@
                 </div>
                 <div class="col-6 text-center">
                     <ul style="font-family: 'Raleway', sans-serif; font-size: 12px;">
-                        <a href="{{ route('katalog.userIndex')}}"><li class="d-inline mx-3">PRODUK</li></a>
+                        <a href="{{ route('order.index')}}"><li class="d-inline mx-3">PRODUK</li></a>
                         <li class="d-inline mx-3">ARTIKEL</li>
                         <li class="d-inline mx-3">TENTANG KAMI</li>
                         <li class="d-inline mx-3">FAQ</li>
@@ -107,7 +107,7 @@
                 <div class="col-6 ps-5 mb-5">
                     <p class="fs-1 fw-bold ps-5">Katalog produk  berisi variasi rasa susu kedelai yang menyegarkan</p>
                     <p class="fs-6 text-secondary ps-5">Susu kedelai biasanya hanya disajikan rasa original. Variasi rasa  membuat anda dapat merasakan sensasi rasa berbeda yang tentunya tetap menyehatkan. </p>
-                        <a href="{{ route('katalog.userIndex')}}"><button type="button" class="btn text-white my-4 ms-5" style="background-color: #457B9D;">Yuk Belanja</button></a>
+                        <a href="{{ route('order.index')}}"><button type="button" class="btn text-white my-4 ms-5" style="background-color: #457B9D;">Yuk Belanja</button></a>
                 </div>
                 <div class="col-6 text-center">
                     <img src="{{asset('img/belanja.png')}}" alt="belanja" style="transform: scale(0.75);" class="">

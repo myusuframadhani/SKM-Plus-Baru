@@ -71,7 +71,7 @@
                                 <div class="my-1"><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i></div>
                                 <p class="fs-3 fw-bold" style="color: #457B9D">Rp {{ $data->harga_produk}},00</p>
                                 <p class="text-secondary">{{ $data->deskripsi_produk }}</p>
-                                <a href="#"><button type="button" class="btn text-white my-4" style="background-color: #457B9D">Beli</button></a>
+                                <a href="{{ route ('order.show', $data->id)}}"><button type="button" class="btn text-white my-4" style="background-color: #457B9D">Beli</button></a>
                             </div>
                         </div>
                 </div>

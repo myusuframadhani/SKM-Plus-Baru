@@ -50,9 +50,9 @@
                                 value="{{ $stock->jumlah }}" readonly>
                         </div>
                         <div class="form-group col-md-6">
-                            <label>Stok Masuk (Beri Minus Untuk Mengurangi, Contoh: -5)</label>
+                            <label>Stok Baru</label>
                             <input type="number" class="form-control" name="jumlah" value="0"
-                                placeholder="Tulis stok produk yang masuk..." required>
+                                placeholder="Masukkan stok yang baru" required>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-block btn-primary">Edit Stok</button>

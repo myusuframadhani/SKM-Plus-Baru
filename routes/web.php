@@ -48,8 +48,13 @@ Route::group(['as' => 'katalog.','prefix' => 'produk'], function () {
     Route::post('{id}/edit', '\App\Http\Controllers\KatalogController@update')->name('update')->middleware('is_admin');
 });
 
-// Produk untuk Pengguna
-Route::get('/produk', '\App\Http\Controllers\KatalogController@userIndex')->name('katalog.userIndex');
+Route::group(['as' => 'order.','prefix' => 'order'], function () {
+    Route::get('/', '\App\Http\Controllers\OrderController@index')->name('index');
+    Route::get('{id}/create', '\App\Http\Controllers\OrderController@create')->name('create');
+    Route::post('{id}/create', '\App\Http\Controllers\OrderController@store')->name('store');
+    Route::get('{id}/show', '\App\Http\Controllers\OrderController@show')->name('show');
+    
+});
 
 // Cabang
 Route::group(['as' => 'cabang.','prefix' => 'cabang'], function () {

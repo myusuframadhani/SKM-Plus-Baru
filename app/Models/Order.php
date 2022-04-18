@@ -5,23 +5,25 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Stock extends Model
+class Order extends Model
 {
     use HasFactory;
+
+    protected $table = 'orders';
     protected $guarded = ['id'];
 
-    public function cabang()
+    public function user()
     {
-        return $this->belongsTo(Cabang::class, 'id_cabang');
+        return $this->belongsTo(User::class, 'id_user');
     }
 
     public function katalog()
     {
         return $this->belongsTo(Katalog::class, 'id_produk');
     }
-
-    public function order()
+    
+    public function stock()
     {
-        return $this->hasMany(Order::class);
+        return $this->belongsTo(Stock::class, 'id_stok');
     }
 }
