@@ -17,7 +17,7 @@
     </div>
 </div>
 <!-- row -->
-
+<p class="my-4 ms-5 ps-5"><i class="fa-solid fa-house me-3"></i>Dashboard > Produk > <span class="fw-bolder">Cabang</span></p>
 <div class="row mx-5">
     <div class="col-12">
         <div class="card">
@@ -34,19 +34,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse($cabang as $data)
+                            @foreach($cabang as $data)
                                 <tr>
                                     <td class="text-center">{{ $data->nama_cabang }}</td>
                                     <td>
-                                        <a href="{{ route('order.create', $data->id) }}">
+                                        <a href="{{ route('order.create', [$katalog->id, $data->id]) }}">
                                             <button type="button" class="btn btn-info bg-primary text-white">
                                                 <i class="fa-solid fa-arrow-right"></i>
                                             </button>
                                         </a>
                                     </td>
                                 </tr>
-                            @empty
-                            @endforelse
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

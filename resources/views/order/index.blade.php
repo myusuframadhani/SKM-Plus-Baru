@@ -11,7 +11,7 @@
                 </div>
                 <div class="col-6 text-center">
                     <ul style="font-family: 'Raleway', sans-serif; font-size: 12px;">
-                        <li class="d-inline mx-3">PRODUK</li>
+                        <a href="{{ route('order.index')}}"><li class="d-inline mx-3">PRODUK</li></a>
                         <li class="d-inline mx-3">ARTIKEL</li>
                         <li class="d-inline mx-3">TENTANG KAMI</li>
                         <li class="d-inline mx-3">FAQ</li>
@@ -38,6 +38,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('user.show', $user->id) }}">Profil</a>
+                            <a class="dropdown-item" href="{{ route('transaksi.user.index')}}">Transaksi</a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
@@ -58,10 +59,10 @@
             <div class="mx-5 mt-5">
                 <p class="fw-bold fs-2 ms-5">Katalog Produk</p>
             </div>
-            <p class="my-4 ms-5 ps-5"><i class="fa-solid fa-house me-3"></i><span class="fw-bolder">Dashboard</span> > Produk</p>
+            <p class="my-4 ms-5 ps-5"><i class="fa-solid fa-house me-3"></i>Dashboard > <span class="fw-bolder">Produk</span></p>
             <div class="row mx-5">
                 @forelse($katalog as $data)
-                <div class="col-3 border border-3 rounded mx-2 my-2">
+                <div class="col-3 rounded">
                         <div class="card text-black border-0">
                             <div class="rounded-0">
                                 <img src="storage/{{ $data->gambar }}" class="card-img-top px-5 pt-5" alt="Susu rasa original">
@@ -145,7 +146,7 @@
 
   <!-- Copyright -->
   <div class="text-center text-dark p-3" style="background-color: #A8DADC;">
-    © 2020 Copyright:
+    © 2022 Copyright:
     <a class="text-dark" href="https://mdbootstrap.com/">SKMPlus.com</a>
   </div>
   <!-- Copyright -->

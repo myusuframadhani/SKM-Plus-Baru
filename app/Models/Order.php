@@ -26,4 +26,8 @@ class Order extends Model
     {
         return $this->belongsTo(Stock::class, 'id_stok');
     }
+    public function cabang()
+    {
+        return $this->belongsTo(Cabang::class, 'id_cabang');
+    }
 }

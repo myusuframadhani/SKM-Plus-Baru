@@ -27,10 +27,11 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        $katalog = \App\Models\Katalog::findOrFail($id);    
+        $katalog = \App\Models\Katalog::findOrFail($id);  
         $order = \App\Models\Order::where("id_produk", $katalog->id)->get();
+        $stock = \App\Models\Stock::where("id_produk", $katalog->id)->get();
         $cabang = \App\Models\Cabang::all();
-        return view('order.show',compact('katalog', 'order', 'cabang'));
+        return view('order.show',compact('katalog', 'order', 'stock', 'cabang'));
     }
 
     /**
@@ -39,11 +40,15 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
-    {
-        $cabang = \App\Models\Cabang::findOrFail($id);
+    public function create($id,$cabang)
+    { 
+        $katalog = \App\Models\Katalog::findOrFail($id);  
+        $cabang = \App\Models\Cabang::findOrFail($cabang);
         $stock = \App\Models\Stock::where("id_cabang", $cabang->id)->get();
-        return view('order.show',compact('cabang', 'stock'));
+        $stock = \App\Models\Stock::findOrFail($id);
+        $order = \App\Models\Order::where("id_cabang", $cabang->id)->get();
+        $order = \App\Models\Order::where("id_stok", $stock->id)->get();
+        return view('order.create',compact('katalog', 'cabang', 'stock', 'order'));
     }
 
     /**
@@ -53,12 +58,14 @@ class OrderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id)
-    {
+    public function store(Request $request, $id, $cabang)
+    {   
         $user = auth()->user();
         $input = $request->all();
+        $stock = \App\Models\Stock::findOrFail($id);
 
         $dataValidator = [
+            'id_user' => 'required|numeric',
             'id_cabang' => 'required|numeric',
             'id_produk' => 'required|numeric',
             'id_stok' => 'required|numeric',
@@ -66,23 +73,40 @@ class OrderController extends Controller
             'alamat' => 'required|string',
             'jumlah' => 'required|integer',
             'bukti_transaksi' => 'image|file',
+            'konfirmasi' => 'string'
         ];
         $validator = Validator::make($input,$dataValidator);
         if($validator->fails()){
             return back()->with('error', $validator->errors()->all());
         }
         
+        // count new amount
+        $jumlah_baru = $stock->jumlah - $request->jumlah;
+
+        // validate new amount
+        if($jumlah_baru > $stock->jumlah) {
+            return back()->with('error', ['Stok tidak mencukupi!']);
+        }
+
+        $dataUpdate = [
+            'id' => $stock->id,
+            'jumlah' => $jumlah_baru,
+        ];
+        $stock->update($dataUpdate);
+        
         $dataCreate = [
+            'id_user' => $user->id,
             'id_cabang' => $request->id_cabang,
             'id_produk' => $request->id_produk,
             'id_stok' => $request->id_stok,
             'metode_pembayaran' => $request->metode_pembayaran,
             'alamat' => $request->alamat,
             'jumlah' => $request->jumlah,
-            'bukti_transaksi' => $request->file('image')->store('bukti_transaksi'),
+            'bukti_transaksi' => $request->file('bukti_transaksi')->store('bukti_transaksi'),
+            'konfirmasi' => 'menunggu'
         ];
         $order = \App\Models\Order::create($dataCreate);
-        
+
         return back()->with('success', 'Berhasil membeli produk');
     }
 
@@ -92,9 +116,8 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function nota($id)
+    public function warning()
     {
-        $order = \App\Models\Order::findOrFail($id);
-        return view('order.nota',compact('nota'));
+        return view('order.warning');
     }    
 }
