@@ -43,7 +43,13 @@
                         <div class="sb-nav-link-icon"><i class="fa-solid fa-cubes-stacked"></i></i></div>
                         Stok Produk
                     </a>
+
+                    <div class="sb-sidenav-menu-heading">Transaksi</div>
                     
+                    <a class="nav-link" href="{{route('transaksi.admin.indexAdmin')}}">
+                        <div class="sb-nav-link-icon"><i class="fa-solid fa-list"></i></i></div>
+                        Transaksi
+                    </a>
 
                     
                     <div class="sb-sidenav-menu-heading">Addons</div>

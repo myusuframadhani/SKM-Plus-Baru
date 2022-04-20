@@ -7,7 +7,7 @@
         <nav class="my-4">
             <div class="row justify-content-center align-items-center mx-4">
                 <div class="col-3 text-center">
-                    <img src="{{asset('img/logo.png')}}" alt="Logo Website" class="ms-5" style="transform: scale(0.75);">
+                    <a href="{{ route('home') }}"><img src="{{asset('img/logo.png')}}" alt="Logo Website" class="ms-5" style="transform: scale(0.75);"></a>
                 </div>
                 <div class="col-6 text-center">
                     <ul style="font-family: 'Raleway', sans-serif; font-size: 12px;">
@@ -49,6 +49,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('user.show', $user->id) }}">Profil</a>
+                            <a class="dropdown-item" href="{{ route('transaksi.user.index')}}">Transaksi</a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
@@ -88,7 +89,7 @@
 
                 <div class="col-5">
                     <p class="fs-2 fw-bold my-3">Minum Susu Untuk Kesehatanmu</p>
-                    <p class="fs-6 text-secondary lh-sm my-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum voluptates assumenda, ab dignissimos, voluptatum ad itaque voluptate repudiandae totam non odio fuga tenetur mollitia exercitationem commodi, reprehenderit sequi porro quaerat.</p>
+                    <p class="fs-6 text-secondary lh-sm my-3">Susu bermanfaat untuk membantu proses pertumbuhan, membantu mengontrol gula darah, memberi nutrisi bagi ibu hamil, menjaga kesehatan tulang dan gigi, dan melancarkan pencernaan</p>
                     <div class="row my-3">
                         <div class="col-6">
                             <p class="fw-bolder fs-5" style="color: #457B9D">1. Vitamin A, B, D, E</p>
@@ -182,7 +183,7 @@
 
   <!-- Copyright -->
   <div class="text-center text-dark p-3" style="background-color: #A8DADC;">
-    © 2020 Copyright:
+    © 2022 Copyright:
     <a class="text-dark" href="https://mdbootstrap.com/">SKMPlus.com</a>
   </div>
   <!-- Copyright -->
