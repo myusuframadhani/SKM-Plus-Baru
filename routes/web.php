@@ -48,12 +48,24 @@ Route::group(['as' => 'katalog.','prefix' => 'produk'], function () {
     Route::post('{id}/edit', '\App\Http\Controllers\KatalogController@update')->name('update')->middleware('is_admin');
 });
 
+// Order
 Route::group(['as' => 'order.','prefix' => 'order'], function () {
     Route::get('/', '\App\Http\Controllers\OrderController@index')->name('index');
-    Route::get('{id}/create', '\App\Http\Controllers\OrderController@create')->name('create');
-    Route::post('{id}/create', '\App\Http\Controllers\OrderController@store')->name('store');
+    Route::get('{id}/{cabang}/create', '\App\Http\Controllers\OrderController@create')->name('create');
+    Route::post('{id}/{cabang}/create', '\App\Http\Controllers\OrderController@store')->name('store');
     Route::get('{id}/show', '\App\Http\Controllers\OrderController@show')->name('show');
+    Route::get('warning', '\App\Http\Controllers\OrderController@warning')->name('warning');
     
+});
+
+//Transaksi
+Route::group(['as' => 'transaksi.','prefix' => 'transaksi'], function () {
+    Route::get('/', '\App\Http\Controllers\TransaksiController@index')->name('user.index');
+    Route::get('/admin', '\App\Http\Controllers\TransaksiController@indexAdmin')->name('admin.indexAdmin')->middleware('is_admin');
+    Route::get('{id}/show', '\App\Http\Controllers\TransaksiController@show')->name('user.show');
+    Route::get('{id}/invoice', '\App\Http\Controllers\TransaksiController@invoice')->name('user.invoice');
+    Route::get('{id}/showAdmin', '\App\Http\Controllers\TransaksiController@showAdmin')->name('admin.showAdmin')->middleware('is_admin');
+    Route::post('{id}/konfirmasi', '\App\Http\Controllers\TransaksiController@update')->name('admin.update')->middleware('is_admin');
 });
 
 // Cabang
