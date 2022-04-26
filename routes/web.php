@@ -84,3 +84,16 @@ Route::group(['as' => 'stock.','prefix' => 'stok'], function () {
     Route::get('{id}/edit', '\App\Http\Controllers\StockController@edit')->name('edit');
     Route::post('{id}/edit', '\App\Http\Controllers\StockController@update')->name('update');
 });
+
+// Artikel
+Route::group(['as' => 'artikel.','prefix' => 'artikel'], function () {
+    Route::get('/', '\App\Http\Controllers\ArtikelController@index')->name('user.index');
+    Route::get('/admin', '\App\Http\Controllers\ArtikelController@indexAdmin')->name('admin.index')->middleware('is_admin');
+    Route::get('/create', '\App\Http\Controllers\ArtikelController@create')->name('admin.create')->middleware('is_admin');
+    Route::post('/create', '\App\Http\Controllers\ArtikelController@store')->name('admin.store')->middleware('is_admin');
+    Route::get('{id}/show', '\App\Http\Controllers\ArtikelController@show')->name('user.show');
+    Route::get('{id}/edit', '\App\Http\Controllers\ArtikelController@edit')->name('admin.edit')->middleware('is_admin');
+    Route::post('{id}/edit', '\App\Http\Controllers\ArtikelController@update')->name('admin.update')->middleware('is_admin');
+});
+Route::get('{id}/show', '\App\Http\Controllers\ArtikelController@showAdmin')->name('artikel.admin.show')->middleware('is_admin');
+
