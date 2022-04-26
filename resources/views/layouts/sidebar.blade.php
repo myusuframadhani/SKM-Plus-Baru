@@ -51,6 +51,13 @@
                         Transaksi
                     </a>
 
+                    <div class="sb-sidenav-menu-heading">Artikel</div>
+                    
+                    <a class="nav-link" href="{{route('artikel.admin.index')}}">
+                        <div class="sb-nav-link-icon"><i class="fa-solid fa-list"></i></i></div>
+                        Artikel
+                    </a>
+
                     
                     <div class="sb-sidenav-menu-heading">Addons</div>
                     <a class="nav-link" href="charts.html">
