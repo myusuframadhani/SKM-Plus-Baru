@@ -12,7 +12,7 @@
                 <div class="col-6 text-center">
                     <ul style="font-family: 'Raleway', sans-serif; font-size: 12px;">
                         <a href="{{ route('order.index')}}"><li class="d-inline mx-3">PRODUK</li></a>
-                        <li class="d-inline mx-3">ARTIKEL</li>
+                        <a href="{{ route('artikel.user.index')}}"><li class="d-inline mx-3">ARTIKEL</li></a> 
                         <li class="d-inline mx-3">TENTANG KAMI</li>
                         <li class="d-inline mx-3">FAQ</li>
                     </ul>

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('id_user')->constrained();
             $table->foreignId('id_produk')->constrained();
+            $table->foreignId('id_cabang')->constrained();
             $table->foreignId('id_stok')->constrained();
             $table->string('alamat');
             $table->string('metode_pembayaran');
