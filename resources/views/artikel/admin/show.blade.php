@@ -35,7 +35,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Author</label>
+                            <label class="col-sm-3 col-form-label">Tanggal Diperbarui</label>
                             <div class="col-sm-9">
                                 <input type="text" readonly class="form-control-plaintext" value="{{ $artikel->updated_at->format('d-m-Y | H:i:s') }}">
                             </div>
@@ -49,7 +49,7 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Deskripsi</label>
                             <div class="col-sm-9">
-                                <textarea readonly class="form-control-plaintext" style="resize: none;">{{ $artikel->deskripsi }}</textarea>
+                                {!! $artikel->deskripsi !!}
                             </div>
                         </div>
                     </form>

@@ -48,7 +48,7 @@
                                     <td>{{ $data->created_at->format('d-m-Y | H:i:s') }}</td>
                                     <td>{{ $data->updated_at->format('d-m-Y | H:i:s') }}</td>
                                     <td>{{ $data->author }}</td>
-                                    <td>{{ $data->deskripsi }}</td>
+                                    <td class="fw-normal">{!! Str::limit($data->deskripsi, 15) !!}</td>
                                     <td class="text-center">
                                         <div class="btn-group">
                                             <a href="{{ route('artikel.admin.show', $data->id) }}">

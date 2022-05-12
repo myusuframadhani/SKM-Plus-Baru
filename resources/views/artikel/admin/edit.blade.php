@@ -49,7 +49,7 @@
                         </div>
                         <div class="form-group">
                             <label>Deskripsi</label>
-                            <textarea class="form-control my-2" name="deskripsi"
+                            <textarea class="ckeditor form-control my-2" id="wysiwyg-editor" name="deskripsi"
                                 placeholder="Masukkan deskripsi artikel..." required>{{ $artikel->deskripsi }}</textarea>
                         </div><br>
                         <button type="submit" class="btn btn-block btn-primary"><i class="fa-solid fa-pen-to-square me-2"></i>Sunting</button>
@@ -59,4 +59,10 @@
         </div>
     </div>
 </div>
+<script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.ckeditor').ckeditor();
+    });
+</script>
 @endsection

@@ -4,7 +4,7 @@
 <div class="row my-3 align-items-center">
     <div class="col-10">
     <div class="welcome-text">
-            <p class="text-black text-start fs-3 my-3 ms-4">Detail Data Artikel</p>
+            <p class="text-black text-start fs-3 my-3 ms-4">Tambah Data Artikel</p>
         </div>
     </div>
     <div class="col-2 text-start">
@@ -46,7 +46,7 @@
                     </div>
                     <div class="form-group my-2">
                         <label>Deskripsi</label>
-                        <textarea class="form-control my-2" name="deskripsi" placeholder="Masukkan deskripsi artikel..." required></textarea>
+                        <textarea class="ckeditor form-control my-2" name="deskripsi" id="wysiwyg-editor" placeholder="Masukkan deskripsi artikel..." required></textarea>
                     </div><br>
                     <button type="submit" class="btn btn-block btn-primary"><i class="fa-solid fa-cloud-arrow-up me-2"></i>Terbitkan</button>
                 </form>
@@ -54,4 +54,10 @@
         </div>
     </div>
 </div>
+<script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.ckeditor').ckeditor();
+    });
+</script>
 @endsection

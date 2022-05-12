@@ -61,7 +61,7 @@ class ArtikelController extends Controller
         ];
 
         $artikel = \App\Models\Artikel::create($dataCreate);
-        return back()->with('success', 'Berhasil menambahkan data produk');
+        return back()->with('success', 'Berhasil menambahkan artikel');
     }
 
     /**
@@ -122,7 +122,7 @@ class ArtikelController extends Controller
             'deskripsi' => $request->deskripsi,
         ];
         $artikel->update($dataUpdate);
-        return back()->with('success', 'Berhasil memperbarui data produk');
+        return back()->with('success', 'Berhasil memperbarui artikel');
     }
 
     /**
