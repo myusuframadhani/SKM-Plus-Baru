@@ -12,7 +12,7 @@
                 <div class="col-6 text-center">
                     <ul style="font-family: 'Raleway', sans-serif; font-size: 12px;">
                         <a href="{{ route('order.index')}}"><li class="d-inline mx-3">PRODUK</li></a>
-                        <li class="d-inline mx-3">ARTIKEL</li>
+                        <a href="{{ route('artikel.user.index')}}"><li class="d-inline mx-3">ARTIKEL</li></a>
                         <li class="d-inline mx-3">TENTANG KAMI</li>
                         <li class="d-inline mx-3">FAQ</li>
                     </ul>
@@ -66,10 +66,10 @@
             </div>
         </nav>
         <main class="container">
-            <div class="row align-items-center mx-3">
+            <div class="row align-items-center mx-3 mb-5">
                 <div class="col-6 ps-5">
                     <p class="fs-1 fw-bold py-3 ps-5" style="font-family: 'Rubik', sans-serif; font-size: 44px; font-weight: 600">SUSU KEDELAI, CIPTAKAN GENERASI <span style="color: #A8DADC">SEHAT!</span></p>
-                    <p class="fs-6 text-secondary lh-sm ps-5 my-4" font-family="font-family: 'Rubik', sans-serif;">All in one destination for COVID-19 health queries.  Consult 10,000+ health workers about your concerns.</p>
+                    <p class="fs-6 text-secondary lh-sm ps-5 my-4" font-family="font-family: 'Rubik', sans-serif;">Susu kedelai merupakan susu nabati yang kaya akan manfaat dan kaya nutrisi. Susu kedelai dapat menjadi sumber protein, karbohidrat. gula, serat, dan lemak yang baik serta kaya akan mineral dan vitamin yang bermanfaat bagi tubuh</p>
                     <a href="#belanja"><button type="button" class="btn text-white ms-5 my-4" style="background-color: #457B9D;">Belanja</button></a>
                     <a href=""><button type="button" class="btn btn-outline-primary ms-2 my-4" data-mdb-ripple-color="dark">Lainnya</button></a>
                 </div>
@@ -77,12 +77,7 @@
                     <img src="{{asset('img/landing-page.png')}}" alt="" style="background-size : cover;">
                 </div>
             </div>
-            <div class="row mx-5 mb-5">
-                <div class="col-3 mx-5 mb-5">
-                    <a href=""><img src="{{asset('img/video.png')}}" alt=""></a>
-                </div>
-            </div>
-            <div class="row align-items-center">
+            <div class="row align-items-center mt-5">
                 <div class="col-5 text-center">
                     <img src="{{asset('img/gizi.png')}}" alt="gizi susu" style="transform: scale(0.75);" class="me-5">
                 </div>

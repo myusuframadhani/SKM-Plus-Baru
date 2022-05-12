@@ -49,7 +49,7 @@
                     </div>
                     <div class="col-md-6 my-2">
                         <label>Gambar Produk</label>
-                        <input type="file" name="image" class="form-control">
+                        <input type="file" name="image" class="form-control" value="{{ $katalog->gambar }}">
                     </div>
                     <div class="form-group">
                         <label>Deskripsi Produk</label>
