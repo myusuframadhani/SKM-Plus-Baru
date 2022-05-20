@@ -24,4 +24,8 @@ class Cabang extends Model
     {
         return $this->hasMany(Order::class);
     }
+    public function finance()
+    {
+        return $this->hasMany(Financial::class);
+    }
 }
