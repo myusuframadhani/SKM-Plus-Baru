@@ -67,10 +67,15 @@
                             <div class="form-group my-2">
                                 <label>Jumlah Pesanan</label>
                                 <div class="input-group mb-3">
-                                    <input type="number" class="form-control" name="jumlah" required>
+                                    <input type="number" class="form-control" name="jumlah" id="jumlah" onkeyup="myFunction(this.value);" required>
                                     <span class="input-group-text" id="basic-addon2">pcs</span>
                                 </div>
                             </div>
+                            <div class="form-group my-4">
+                                <label class="fw-bold fs-4">Total Harga</label>
+                                <span class="fw-bold fs-4">Rp <input class="fw-bold fs-4" name="total" id="total_harga" type="text" readonly></span>
+                            </div>
+                            
                             <div class="col my-2">
                                 <label>Bukti Pembayaran</label>
                                 <p class="fs-6 text-secondary my-2"><span class="text-danger">* </span>Masukkan bukti pembayaran jika metode pembayaran menggunakan "transfer"</p>
@@ -90,4 +95,12 @@
         </div>
     </div>
 </div>
+<script>
+    function myFunction(value) {
+        var jumlah;
+        jumlah = value * 3000;
+        
+        document.getElementById('total_harga').value = jumlah;
+    }
+</script>
 @endsection

@@ -102,6 +102,7 @@ class OrderController extends Controller
             'metode_pembayaran' => $request->metode_pembayaran,
             'alamat' => $request->alamat,
             'jumlah' => $request->jumlah,
+            'total' => $request->total,
             'bukti_transaksi' => $request->file('bukti_transaksi')->store('bukti_transaksi'),
             'konfirmasi' => 'menunggu'
         ];
