@@ -34,6 +34,7 @@
                                 <th>Cabang</th>
                                 <th>Alamat</th>
                                 <th>Jumlah</th>
+                                <th>Total</th>
                                 <th>Status</th>
                                 <th>Aksi</th>
                             </tr>
@@ -47,6 +48,7 @@
                                     <td>{{ $data->cabang->nama_cabang}}</td>
                                     <td>{{ $data->alamat}}</td>
                                     <td>{{ $data->jumlah}}</td>
+                                    <td>Rp {{ $data->jumlah * $data->katalog->harga_produk}}</td>
                                     <td class="text-capitalize">{{ $data->konfirmasi}}</td>
                                     <td class="text-center">
                                         <div class="btn-group">

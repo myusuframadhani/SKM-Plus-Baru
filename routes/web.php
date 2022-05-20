@@ -54,8 +54,7 @@ Route::group(['as' => 'order.','prefix' => 'order'], function () {
     Route::get('{id}/{cabang}/create', '\App\Http\Controllers\OrderController@create')->name('create');
     Route::post('{id}/{cabang}/create', '\App\Http\Controllers\OrderController@store')->name('store');
     Route::get('{id}/show', '\App\Http\Controllers\OrderController@show')->name('show');
-    Route::get('warning', '\App\Http\Controllers\OrderController@warning')->name('warning');
-    
+    Route::get('warning', '\App\Http\Controllers\OrderController@warning')->name('warning'); 
 });
 
 //Transaksi
@@ -97,3 +96,14 @@ Route::group(['as' => 'artikel.','prefix' => 'artikel'], function () {
 });
 Route::get('{id}/show', '\App\Http\Controllers\ArtikelController@showAdmin')->name('artikel.admin.show')->middleware('is_admin');
 
+// Pengeluaran
+Route::group(['as' => 'finance.','prefix' => 'finance'], function () {
+    Route::get('/pengeluaran', '\App\Http\Controllers\FinanceController@expenses')->name('expenses.index')->middleware('is_admin');
+    Route::get('/pengeluaran/create', '\App\Http\Controllers\FinanceController@create')->name('expenses.create')->middleware('is_admin');
+    Route::post('/pengeluaran/create', '\App\Http\Controllers\FinanceController@store')->name('expenses.store')->middleware('is_admin');
+    Route::get('/pengeluaran/{id}/show', '\App\Http\Controllers\FinanceController@show')->name('expenses.show');
+    Route::get('/pengeluaran/{id}/edit', '\App\Http\Controllers\FinanceController@edit')->name('expenses.edit')->middleware('is_admin');
+    Route::post('/pengeluaran/{id}/edit', '\App\Http\Controllers\FinanceController@update')->name('expenses.update')->middleware('is_admin');
+
+    Route::get('/rekap', '\App\Http\Controllers\FinanceController@report')->name('report.index')->middleware('is_admin');
+});
