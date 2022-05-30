@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="row my-3 align-items-center">
-    <div class="col-10">
+    <div class="col-8">
     <div class="welcome-text">
-            <p class="text-black text-start fs-3 my-3 ms-4">Pengeluaran</p>
+            <p class="text-black text-start fs-3 my-3 ms-4">Rekap Keuangan</p>
         </div>
     </div>
     <div class="col-2 text-center">
@@ -22,7 +22,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h6 class="card-title">(Pilih cabang untuk melihat pengeluaran)</h6>
+                <h6 class="card-title">(Pilih cabang untuk melihat rekap keuangan)</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -40,7 +40,7 @@
                                     <td>{{ $data->nama_cabang }}</td>
                                     <td>{{ $data->alamat }}</td>
                                     <td>
-                                        <a href="{{ route('finance.expenses.list', $data->id) }}">
+                                        <a href="{{ route('finance.report.cabang', $data->id) }}">
                                             <button type="button" class="btn btn-info">
                                                 <i class="fa fa-eye"></i>
                                             </button>
@@ -51,6 +51,7 @@
                             @endforelse
                         </tbody>
                     </table>
+                    
                 </div>
             </div>
         </div>

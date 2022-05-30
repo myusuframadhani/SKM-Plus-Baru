@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="col-2 text-start">
-        <a href="{{ route('finance.expenses.index') }}">
+        <a href="{{ route('finance.expenses.list', $cabang->id) }}">
             <button type="button" class="btn btn-outline-primary">
                 Kembali
             </button>
@@ -34,15 +34,9 @@
         @endif
         <div class="card-body">
             <div class="basic-form">
-                <form action="{{ route('finance.expenses.create') }}" method="post">
+                <form action="{{ route('finance.expenses.create', $cabang->id) }}" method="post">
                     @csrf
-                    <select class="form-select" aria-label="Default select example" name="cabang">
-                        <option selected>Pilih Cabang</option>
-                        <option value="Cabang Jember">Cabang Jember</option>
-                        <option value="Cabang Kediri">Cabang Kediri</option>
-                        <option value="Cabang Magelang">Cabang Magelang</option>
-                        <option value="Cabang Deli Serdang">Cabang Deli Serdang</option>
-                    </select>
+                    <input type="number" name="id_cabang" value="{{ $cabang->id }}" hidden>
                     <div class="form-group my-2">
                         <label>Jumlah Pengeluaran</label>
                         <div class="input-group">

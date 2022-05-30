@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="col-2 text-start">
-        <a href="{{ route('finance.expenses.index') }}">
+        <a href="{{ route('finance.expenses.list', $finance->cabang->id) }}">
             <button type="button" class="btn btn-outline-primary">
                 Kembali
             </button>
@@ -25,7 +25,7 @@
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Cabang</label>
                         <div class="col-sm-9">
-                            <input type="text" readonly class="form-control-plaintext" value="{{ $finance->cabang }}">
+                            <input type="text" readonly class="form-control-plaintext" value="{{ $finance->cabang->nama_cabang }}">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -37,7 +37,7 @@
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Jumlah Pengeluaran</label>
                         <div class="col-sm-9">
-                            <input type="text" readonly class="form-control-plaintext" value="{{ $finance->jumlah_pengeluaran }}">
+                            <input type="text" readonly class="form-control-plaintext" value="Rp {{ number_format($finance->jumlah_pengeluaran) }}">
                         </div>
                     </div>
                     <div class="form-group row">

@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="col-2 text-start">
-        <a href="{{ route('finance.expenses.index') }}">
+        <a href="{{ route('finance.expenses.list', $finance->cabang->id) }}">
             <button type="button" class="btn btn-outline-primary">
                 Kembali
             </button>
@@ -36,14 +36,17 @@
             <div class="basic-form">
                 <form action="{{ route('finance.expenses.update', $finance->id) }}" method="post">
                     @csrf
+                    <input type="number" name="id_cabang" value="{{ $finance->cabang->id }}" hidden>
                     <div class="form-group">
                         <input type="text" class="form-control input-default " name="cabang"
                             value="{{ $finance->cabang }}" hidden>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group my-2">
                         <label>Jumlah Pengeluaran</label>
-                        <input type="text" class="form-control input-default " name="jumlah_pengeluaran"
-                            value="{{ $finance->jumlah_pengeluaran }}" placeholder="Masukkan jumlah pengeluaran..." required>
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1">Rp</span>
+                            <input type="text" class="form-control input-default " name="jumlah_pengeluaran" placeholder="Masukkan jumlah pengeluaran..." required>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label>Keterangan</label>

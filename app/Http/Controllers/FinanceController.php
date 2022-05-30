@@ -13,16 +13,23 @@ class FinanceController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-    public function expenses()
+    public function index()
     {
-        $finance = \App\Models\Finance::all();
-        return view('finance.expenses.index',compact('finance'));
+        $cabang = \App\Models\Cabang::all();
+        return view('finance.expenses.index',compact('cabang'));
     }
     
-    public function create()
+    public function list($id)
     {
-        $finance = \App\Models\Finance::all();
-        return view('finance.expenses.create',compact('finance'));
+        $cabang = \App\Models\Cabang::findOrFail($id);
+        $finance = \App\Models\Finance::where("id_cabang", $cabang->id)->get();
+        return view('finance.expenses.list',compact('cabang','finance'));
+    }
+
+    public function create($id)
+    {
+        $cabang = \App\Models\Cabang::findOrFail($id);
+        return view('finance.expenses.create',compact('cabang'));
     }
     
     /**
@@ -34,9 +41,10 @@ class FinanceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         $input = $request->all();
+        $user = auth()->user();
 
         $dataValidator = [
             'jumlah_pengeluaran' => 'required|integer',
@@ -48,7 +56,7 @@ class FinanceController extends Controller
         }
 
         $dataCreate = [
-            'cabang' => $request->cabang,
+            'id_cabang' => $request->id_cabang,
             'jumlah_pengeluaran' => $request->jumlah_pengeluaran,
             'keterangan' => $request->keterangan,
         ];
@@ -103,20 +111,11 @@ class FinanceController extends Controller
         }
 
         $dataUpdate = [
-            'cabang' => $request->cabang,
+            'id_cabang' => $request->id_cabang,
             'jumlah_pengeluaran' => $request->jumlah_pengeluaran,
             'keterangan' => $request->keterangan,
         ];
         $finance->update($dataUpdate);
         return back()->with('success', 'Berhasil memperbarui data pengeluaran');
-    }
-
-
-
-
-    public function report()
-    {
-        $finance = \App\Models\Finance::all();
-        return view('finance.report',compact('finance'));
     }
 }
