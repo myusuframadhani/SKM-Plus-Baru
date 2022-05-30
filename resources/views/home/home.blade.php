@@ -13,8 +13,8 @@
                     <ul style="font-family: 'Raleway', sans-serif; font-size: 12px;">
                         <a href="{{ route('order.index')}}"><li class="d-inline mx-3">PRODUK</li></a>
                         <a href="{{ route('artikel.user.index')}}"><li class="d-inline mx-3">ARTIKEL</li></a>
-                        <li class="d-inline mx-3">TENTANG KAMI</li>
-                        <li class="d-inline mx-3">FAQ</li>
+                        <a href="{{ route('aboutme') }}"><li class="d-inline mx-3">TENTANG KAMI</li></a>
+                        <a href="{{ route('faq') }}"><li class="d-inline mx-3">FAQ</li></a>
                     </ul>
                 </div>
                 <div class="rectangle" 
@@ -70,7 +70,7 @@
                 <div class="col-6 ps-5">
                     <p class="fs-1 fw-bold py-3 ps-5" style="font-family: 'Rubik', sans-serif; font-size: 44px; font-weight: 600">SUSU KEDELAI, CIPTAKAN GENERASI <span style="color: #A8DADC">SEHAT!</span></p>
                     <p class="fs-6 text-secondary lh-sm ps-5 my-4" font-family="font-family: 'Rubik', sans-serif;">Susu kedelai merupakan susu nabati yang kaya akan manfaat dan kaya nutrisi. Susu kedelai dapat menjadi sumber protein, karbohidrat. gula, serat, dan lemak yang baik serta kaya akan mineral dan vitamin yang bermanfaat bagi tubuh</p>
-                    <a href="#belanja"><button type="button" class="btn text-white ms-5 my-4" style="background-color: #457B9D;">Belanja</button></a>
+                    <a href="{{ route('order.index') }}"><button type="button" class="btn text-white ms-5 my-4" style="background-color: #457B9D;">Belanja</button></a>
                     <a href=""><button type="button" class="btn btn-outline-primary ms-2 my-4" data-mdb-ripple-color="dark">Lainnya</button></a>
                 </div>
                 <div class="col-6 text-end">
@@ -115,65 +115,7 @@
     </div>
 </body>
 <footer class="text-center text-white mt-5" style="background-color: #FFF;">
-  <!-- Grid container -->
-  <div class="container pt-4">
-    <!-- Section: Social media -->
-    <section class="mb-4">
-      <!-- Facebook -->
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-facebook-f"></i
-      ></a>
-
-      <!-- Twitter -->
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-twitter"></i
-      ></a>
-
-      <!-- Google -->
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-google"></i
-      ></a>
-
-      <!-- Instagram -->
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-instagram"></i
-      ></a>
-
-      <!-- Linkedin -->
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-linkedin"></i
-      ></a>
-      <!-- Github -->
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-github"></i
-      ></a>
-    </section>
-    <!-- Section: Social media -->
-  </div>
+  
   <!-- Grid container -->
 
   <!-- Copyright -->

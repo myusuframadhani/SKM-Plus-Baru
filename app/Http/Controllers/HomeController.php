@@ -35,10 +35,15 @@ class HomeController extends Controller
     {
         return view('home.adminHome');
     }
-    
-    public function stokBarang()
+
+    public function faq()
     {
-        return view('stokBarang');
+        return view('home.faq');
+    }
+
+    public function aboutme()
+    {
+        return view('home.aboutme');
     }
     
 }
