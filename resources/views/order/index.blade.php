@@ -11,10 +11,10 @@
                 </div>
                 <div class="col-6 text-center">
                     <ul style="font-family: 'Raleway', sans-serif; font-size: 12px;">
-                        <a href="{{ route('order.index')}}"><li class="d-inline mx-3">PRODUK</li></a>
+                        <a href="{{ route('order.index')}}"><li class="d-inline mx-3 text-decoration-underline">PRODUK</li></a>
                         <a href="{{ route('artikel.user.index')}}"><li class="d-inline mx-3">ARTIKEL</li></a> 
-                        <li class="d-inline mx-3">TENTANG KAMI</li>
-                        <li class="d-inline mx-3">FAQ</li>
+                        <a href="{{ route('aboutme') }}"><li class="d-inline mx-3">TENTANG KAMI</li></a>
+                        <a href="{{ route('faq') }}"><li class="d-inline mx-3">FAQ</li></a>
                     </ul>
                 </div>
                 
@@ -62,8 +62,8 @@
             <p class="my-4 ms-5 ps-5"><i class="fa-solid fa-house me-3"></i>Dashboard > <span class="fw-bolder">Produk</span></p>
             <div class="row mx-5">
                 @forelse($katalog as $data)
-                <div class="col-3 rounded">
-                        <div class="card text-black border-0">
+                <div class="col-3 rounded mb-2">
+                        <div class="card text-black border-3">
                             <div class="rounded-0">
                                 <img src="storage/{{ $data->gambar }}" class="card-img-top px-5 pt-5" alt="Susu rasa original">
                             </div>
@@ -83,66 +83,6 @@
     </div>
 </body>
 <footer class="text-center text-white mt-5" style="background-color: #FFF;">
-  <!-- Grid container -->
-  <div class="container pt-4">
-    <!-- Section: Social media -->
-    <section class="mb-4">
-      <!-- Facebook -->
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-facebook-f"></i
-      ></a>
-
-      <!-- Twitter -->
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-twitter"></i
-      ></a>
-
-      <!-- Google -->
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-google"></i
-      ></a>
-
-      <!-- Instagram -->
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-instagram"></i
-      ></a>
-
-      <!-- Linkedin -->
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-linkedin"></i
-      ></a>
-      <!-- Github -->
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-github"></i
-      ></a>
-    </section>
-    <!-- Section: Social media -->
-  </div>
-  <!-- Grid container -->
 
   <!-- Copyright -->
   <div class="text-center text-dark p-3" style="background-color: #A8DADC;">

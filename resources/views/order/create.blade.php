@@ -61,8 +61,19 @@
                                 </label>
                             </div>
                             <div class="form-group my-2">
+                                <label>Pengiriman</label>
+                                <select class="form-select" name="pengiriman">
+                                    <option value="Dikirim">Dikirim</option>
+                                    <option value="Ambil di tempat">Ambil Di Tempat</option>
+                                </select>
+                            </div>
+                            <div class="form-group my-2">
                                 <label>Alamat</label>
-                                <input type="text" class="form-control input-default" name="alamat" required>
+                                <input type="text" class="form-control input-default" name="alamat" placeholder="Masukkan alamat..." required>
+                            </div>
+                            <div class="form-group my-2">
+                                <label>Tanggal Pengambilan</label>
+                                <input type="date" class="form-control input-default" name="tanggal_pengambilan" required>
                             </div>
                             <div class="form-group my-2">
                                 <label>Jumlah Pesanan</label>
