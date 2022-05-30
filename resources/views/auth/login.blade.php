@@ -1,17 +1,31 @@
 @extends('layouts.appUser')
 
 @section('content')
-<div class="container">
+<div class="container ">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+            <img class="mx-auto my-4" src="{{ asset('img/header_login.png') }}" height="175px" width="175px">
+            <div class="card" style="background-color: #457B9D">
+                <div class="card-header fw-bold fs-4 text-center">{{ __('Login') }}</div>
 
-                <div class="card-body">
+                <div class="card-body" style="background-color: #A8DADC">
+                    <div class="row mx-auto offset-4 mb-3" style="width: 50%;">
+                        @if($message = Session::get('success'))
+                            <div class="mt-4 mb-0 mx-4 alert alert-success alert-block">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                {{ $message }}
+                            </div>
+                        @elseif($message = Session::get('error'))
+                            <div class="mt-4 mb-0 mx-4 alert alert-danger alert-block">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                {{ $message }}
+                            </div>
+                        @endif
+                    </div>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
-                        <div class="row mb-3">
+                        <div class="row my-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email') }}</label>
 
                             <div class="col-md-6">
@@ -56,12 +70,6 @@
                                 <button type="submit" class="btn btn-primary bg-primary text-white">
                                     {{ __('Masuk') }}
                                 </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Lupa Password?') }}
-                                    </a>
-                                @endif
                             </div>
                         </div>
                         <div class="text-center my-3">

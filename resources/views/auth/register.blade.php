@@ -4,10 +4,11 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+            <img class="mx-auto my-4" src="{{ asset('img/header_login.png') }}" height="150px" width="150px">
+            <div class="card" style="background-color: #457B9D">
+                <div class="card-header  fw-bold fs-4 text-center">{{ __('Register') }}</div>
 
-                <div class="card-body">
+                <div class="card-body" style="background-color: #A8DADC">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
