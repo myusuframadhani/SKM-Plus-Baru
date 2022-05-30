@@ -41,7 +41,7 @@ class KatalogController extends Controller
         $dataValidator = [
             'nama_produk' => 'required|string',
             'harga_produk' => 'required|integer',
-            'gambar' => 'image|file',
+            'gambar' => 'required|image|file',
             'deskripsi_produk' => 'required|string',
         ];
         $validator = Validator::make($input,$dataValidator);

@@ -39,7 +39,7 @@
                     
                     <div class="form-group">
                         <label>Nama Produk</label>
-                        <input type="text" class="form-control input-default " name="nama_produk"
+                        <input type="text" class="form-control input-default" name="nama_produk"
                             value="{{ $katalog->nama_produk }}" placeholder="Tulis nama produk..." required>
                     </div>
                     <div class="form-group">
