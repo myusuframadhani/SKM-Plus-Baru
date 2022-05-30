@@ -15,7 +15,7 @@
 
 <div class="row">
     <div class="col-3"></div>
-    <div class="col-6">
+    <div class="col-6 border border-3">
         <div class="row my-3">
             <div class="col-10  mx-auto text-center">
                 <p class="text-black text-center fs-3 my-3">Invoice</p>

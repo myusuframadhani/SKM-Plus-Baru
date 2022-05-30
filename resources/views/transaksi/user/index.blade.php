@@ -32,6 +32,8 @@
                                 <th>Nama Produk</th>
                                 <th>Cabang</th>
                                 <th>Alamat</th>
+                                <th>Pengiriman</th>
+                                <th>Tanggal Pengambilan</th>
                                 <th>Jumlah</th>
                                 <th>Aksi</th>
                             </tr>
@@ -43,6 +45,8 @@
                                     <td>{{ $data->katalog->nama_produk }}</td>
                                     <td>{{ $data->cabang->nama_cabang}}</td>
                                     <td>{{ $data->alamat}}</td>
+                                    <td>{{ $data->pengiriman}}</td>
+                                    <td>{{ $data->tanggal_pengambilan}}</td>
                                     <td>{{ $data->jumlah}}</td>
                                     <td class="text-center">
                                         <div class="btn-group">

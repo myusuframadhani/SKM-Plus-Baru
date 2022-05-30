@@ -34,10 +34,22 @@
                             <input type="text" readonly class="form-control-plaintext" value="{{ $order->cabang->nama_cabang }}">
                         </div>
                     </div>
+                        <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Pengiriman</label>
+                        <div class="col-sm-9">
+                            <input type="text" readonly class="form-control-plaintext" value="{{ $order->pengiriman }}">
+                        </div>
+                    </div>
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Alamat</label>
                         <div class="col-sm-9">
                             <input type="text" readonly class="form-control-plaintext" value="{{ $order->alamat }}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Tanggal Pengambilan</label>
+                        <div class="col-sm-9">
+                            <input type="date" readonly class="form-control-plaintext" value="{{ $order->tanggal_pengambilan }}">
                         </div>
                     </div>
                     <div class="form-group row">

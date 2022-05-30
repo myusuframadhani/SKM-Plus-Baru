@@ -23,6 +23,8 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/faq', [App\Http\Controllers\HomeController::class, 'faq'])->name('faq');
+Route::get('/about-me', [App\Http\Controllers\HomeController::class, 'aboutme'])->name('aboutme');
 Route::get('admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 
 
@@ -98,12 +100,18 @@ Route::get('{id}/show', '\App\Http\Controllers\ArtikelController@showAdmin')->na
 
 // Pengeluaran
 Route::group(['as' => 'finance.','prefix' => 'finance'], function () {
-    Route::get('/pengeluaran', '\App\Http\Controllers\FinanceController@expenses')->name('expenses.index')->middleware('is_admin');
-    Route::get('/pengeluaran/create', '\App\Http\Controllers\FinanceController@create')->name('expenses.create')->middleware('is_admin');
-    Route::post('/pengeluaran/create', '\App\Http\Controllers\FinanceController@store')->name('expenses.store')->middleware('is_admin');
+    Route::get('/pengeluaran', '\App\Http\Controllers\FinanceController@index')->name('expenses.index')->middleware('is_admin');
+    Route::get('pengeluaran/{id}/list', '\App\Http\Controllers\FinanceController@list')->name('expenses.list')->middleware('is_admin');
+    Route::get('/pengeluaran/create/{id}', '\App\Http\Controllers\FinanceController@create')->name('expenses.create')->middleware('is_admin');
+    Route::post('/pengeluaran/create/{id}', '\App\Http\Controllers\FinanceController@store')->name('expenses.store')->middleware('is_admin');
     Route::get('/pengeluaran/{id}/show', '\App\Http\Controllers\FinanceController@show')->name('expenses.show');
     Route::get('/pengeluaran/{id}/edit', '\App\Http\Controllers\FinanceController@edit')->name('expenses.edit')->middleware('is_admin');
     Route::post('/pengeluaran/{id}/edit', '\App\Http\Controllers\FinanceController@update')->name('expenses.update')->middleware('is_admin');
 
-    Route::get('/rekap', '\App\Http\Controllers\FinanceController@report')->name('report.index')->middleware('is_admin');
+    // Rekap Keuangan
+    Route::get('/rekap', '\App\Http\Controllers\ReportController@index')->name('report.index')->middleware('is_admin');
+    Route::get('cabang/{id}', '\App\Http\Controllers\ReportController@cabang')->name('report.cabang')->middleware('is_admin');
+    Route::post('cabang/{id}', '\App\Http\Controllers\ReportController@cabangPeriode')->name('report.cabangPeriode')->middleware('is_admin');
+    Route::get('/recap', '\App\Http\Controllers\ReportController@recap')->name('report.recap')->middleware('is_admin');
+    Route::post('/recap', '\App\Http\Controllers\ReportController@recapPeriode')->name('report.recapPeriode')->middleware('is_admin');
 });

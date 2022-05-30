@@ -67,9 +67,13 @@
                     <div class="collapse mb-5" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                         <nav class="sb-sidenav-menu-nested nav">
                             <a class="nav-link" href="{{route('finance.expenses.index')}}">Pengeluaran</a>
-                            <a class="nav-link" href="{{route('finance.report.index')}}">Rekap Keuangan</a>
+                            <a class="nav-link" href="{{route('finance.report.index')}}">Rekap Keuangan Per Cabang</a>
+                            <a class="nav-link" href="{{route('finance.report.recap')}}">Rekap Keuangan</a>
                         </nav>
                     </div>
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                        
+                    </a>
                     
                     <!-- <div class="sb-sidenav-menu-heading">Addons</div>
                     <a class="nav-link" href="charts.html">
